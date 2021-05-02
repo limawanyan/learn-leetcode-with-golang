@@ -1,11 +1,9 @@
 package reverse_linked_list
 
-
 type ListNode struct {
 	Val int
     Next *ListNode
 }
-
 
 // 迭代方式
 func reverseList(head *ListNode) *ListNode {
