@@ -31,6 +31,7 @@ func swapPairs2(head *ListNode) *ListNode{
 		node1 := temp.Next
 		node2 := temp.Next.Next
 		// temp -> node2 -> node1
+		temp.Next = node2
 		node1.Next = node2.Next
 		node2.Next = node1
 		temp = node1
