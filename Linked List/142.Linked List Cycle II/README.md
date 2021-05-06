@@ -36,4 +36,4 @@ pos 的值为 -1 或者链表中的一个有效索引
     每次循环时判断当前节点是否已经存在。
 
 ### 快慢指针
-    https://leetcode-cn.com/problems/linked-list-cycle-ii/solution/linked-list-cycle-ii-kuai-man-zhi-zhen-shuang-zhi-/
+    https://leet code-cn.com/problems/linked-list-cycle-ii/solution/linked-list-cycle-ii-kuai-man-zhi-zhen-shuang-zhi-/
