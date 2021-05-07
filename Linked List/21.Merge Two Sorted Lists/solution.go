@@ -34,12 +34,16 @@ func  mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 
 // 递归
 func mergeTwoLists2(l1 *ListNode, l2 *ListNode) *ListNode {
+	// 如果一个链表为空，直接返回另一个剩余链表
 	if l1 == nil{
 		return l2
 	}
 	if l2 == nil{
 		return l1
 	}
+	// 比较两链表当前节点值大小，进一步切片
+	// 将当前递归链表连接下一步递归结果
+	// 返回当前值小的节点
 	if l1.Val < l2.Val{
 		l1.Next = mergeTwoLists(l1.Next,l2)
 		return l1
