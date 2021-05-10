@@ -1,4 +1,4 @@
-package _5_Reverse_Nodes_In_K_Group
+package _5_ReverseNodesInKGroup
 
 type ListNode struct {
 	Val int

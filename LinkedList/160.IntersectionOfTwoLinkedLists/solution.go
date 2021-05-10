@@ -1,4 +1,4 @@
-package _60_Intersection_Of_Two_Linked_lists
+package _60_IntersectionOfTwoLinkedLists
 
 type ListNode struct {
 	Val int

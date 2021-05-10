@@ -1,4 +1,4 @@
-package _1_Merge_Two_Sorted_Lists
+package _1_MergeTwoSortedLists
 
 type ListNode struct {
 	Val int

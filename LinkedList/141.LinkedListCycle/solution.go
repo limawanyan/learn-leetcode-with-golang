@@ -1,4 +1,4 @@
-package _41_Linked_List_Cycle
+package _41_LinkedListCycle
 
 type ListNode struct{
 	Val int
