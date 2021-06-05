@@ -66,19 +66,22 @@ func maxSlidingWindow3(nums []int,k int) []int  {
 	if len(nums) == 0 || len(nums) < k{
 		return make([]int,0)
 	}
-	// 存储索引
+	// 存储索引 （最大元素永远保持在左边）
 	window := make([]int,0,k)
 	result := make([]int,0,len(nums)-k+1)
 	for i,v := range nums {
+		// 维护索引队列 当前索引大于等于K and 如果元素索引超出了左界
 		if i >= k && window[0] <= i-k{
 			window = window[1:len(window)]
 		}
-		// 维护窗口
+		// 维护窗口 索引队列不为空 and 当前元素大于索引队列中右边元素
 		for len(window) > 0 && nums[window[len(window)-1]] < v{
+			// 将右边元素移除掉
 			window = window[0:len(window)-1]
 		}
 		// 存储索引到数组
 		window = append(window,i)
+		// 当前索引大于等于滑动窗口维护元素个数
 		if i >= k-1{
 			result = append(result,nums[window[0]])
 		}

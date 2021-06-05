@@ -4,7 +4,7 @@ import (
 	"strings"
 )
 
-// 栈
+// 栈 时间复杂度O(n) 空间复杂度O(n + 字符集) 本题字符集为括号 6 种
 func isValid(s string) bool {
 	// 如果字符串长度为奇数直接返回
 	if len(s)%2 != 0 {
@@ -36,7 +36,7 @@ func isValid(s string) bool {
 	return len(stack) == 0
 }
 
-//替换
+// 替换 不推荐
 func isValid2(s string) bool {
 	var length int
 	for {

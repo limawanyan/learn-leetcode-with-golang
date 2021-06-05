@@ -5,7 +5,7 @@ type ListNode struct {
      Next *ListNode
 }
 
-// 递归法
+// 递归法 时间复杂度O(n) 空间复杂度O(n)
 func swapPairs(head *ListNode) *ListNode {
 	// 当链表只剩一个节点或者没有节点的时候递归终止
 	if head == nil || head.Next == nil{
@@ -21,7 +21,7 @@ func swapPairs(head *ListNode) *ListNode {
 	return newHead
 }
 
-// 迭代法
+// 迭代法 时间复杂度O(n) 空间复杂度O(1)
 func swapPairs2(head *ListNode) *ListNode{
 	dummyHead := &ListNode{0,head}
 	temp := dummyHead

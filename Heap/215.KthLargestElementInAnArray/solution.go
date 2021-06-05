@@ -13,7 +13,7 @@ func findKthLargest1(nums []int, k int) int {
 	return nums[len(nums)-k]
 }
 
-// 解法二 这个方法的理论依据是 partition 得到的点的下标就是最终排序之后的下标，根据这个下标，我们可以判断第 K 大的数在哪里
+// 解法二 快速选择排序 这个方法的理论依据是 partition 得到的点的下标就是最终排序之后的下标，根据这个下标，我们可以判断第 K 大的数在哪里
 // 时间复杂度 O(n)，空间复杂度 O(log n)，最坏时间复杂度为 O(n^2)，空间复杂度 O(n)
 func findKthLargest2(nums []int, k int) int {
 	m := len(nums) - k + 1 // mth smallest, from 1..len(nums)
