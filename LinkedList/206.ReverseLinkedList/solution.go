@@ -5,7 +5,7 @@ type ListNode struct {
     Next *ListNode
 }
 
-// 迭代方式
+// 迭代方式 时间复杂度为O(n) n为链表长度 空间复杂度为 O(1)
 func reverseList(head *ListNode) *ListNode {
 	// 存储上一个节点，初始化为空
 	var prev *ListNode
@@ -27,7 +27,7 @@ func reverseList(head *ListNode) *ListNode {
 	return prev
 }
 
-// 递归方式
+// 递归方式 时间复杂度 O(n) 空间复杂度 O(n)
 func reverseList2(head *ListNode) *ListNode {
 	// 终止条件，当前节点为空或指向到最后一个节点
 	if head == nil || head.Next == nil{

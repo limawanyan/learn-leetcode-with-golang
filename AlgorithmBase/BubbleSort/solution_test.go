@@ -6,7 +6,7 @@ import (
 )
 
 func TestBubleSort(t *testing.T) {
-	list := []int{1,4,5,6,14,30}
+	list := []int{8,4,15,6,14,30}
 	BubbleSort(list)
 	fmt.Print(list)
 }
