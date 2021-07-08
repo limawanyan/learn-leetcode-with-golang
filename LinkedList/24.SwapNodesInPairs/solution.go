@@ -23,6 +23,7 @@ func swapPairs(head *ListNode) *ListNode {
 
 // 迭代法 时间复杂度O(n) 空间复杂度O(1)
 func swapPairs2(head *ListNode) *ListNode{
+	// 设置哑结点
 	dummyHead := &ListNode{0,head}
 	temp := dummyHead
 	// 没有两两可以交换的节点时终止迭代
@@ -31,9 +32,12 @@ func swapPairs2(head *ListNode) *ListNode{
 		node1 := temp.Next
 		node2 := temp.Next.Next
 		// temp -> node2 -> node1
-		temp.Next = node2
-		node1.Next = node2.Next
-		node2.Next = node1
+		//temp.Next = node2
+		//node1.Next = node2.Next
+		//node2.Next = node1
+		// 简写
+		temp.Next,node1.Next,node2.Next = node2,node2.Next,node1
+
 		temp = node1
 	}
 	return dummyHead.Next
