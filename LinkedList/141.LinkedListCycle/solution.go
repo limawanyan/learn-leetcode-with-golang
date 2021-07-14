@@ -18,7 +18,7 @@ func hasCycle(head *ListNode) bool {
 	return false
 }
 
-// 哈希表
+// 哈希表 时间复杂度o(n)
 func hasCycle2(head *ListNode) bool {
 	// 通过map实现set
 	m := map[*ListNode]struct{}{}

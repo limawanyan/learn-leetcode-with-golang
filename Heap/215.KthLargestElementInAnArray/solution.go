@@ -52,7 +52,7 @@ func partition(nums []int, l, r int) int {
 	return i + 1
 }
 
-// 解法三 优先队列 小顶堆
+// 解法三 优先队列 小顶堆 O(nlogn)
 type TopList []int
 
 func (t TopList)Len()int{
