@@ -22,3 +22,25 @@ func BubbleSort(list []int) {
 		}
 	}
 }
+
+// 写法2
+func BubbleSort2(list []int) {
+	// 数组元素个数
+	n := len(list)
+	// 元素是否已经有序
+	flag := false
+	// 循环n-1次
+	for i := 0;i < n-1;i++{
+		flag = false
+		for j := 0;j < n-1-i;j++{
+			if list[j] > list[j+1]{
+				list[j],list[j+1] = list[j+1],list[j]
+				flag = true
+			}
+		}
+		// 如果一轮循环中咩有发生交换说明 已经有序
+		if !flag{
+			break
+		}
+	}
+}

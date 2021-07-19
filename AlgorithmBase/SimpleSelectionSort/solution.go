@@ -53,3 +53,20 @@ func SelectGoodSort(list []int)  {
 		}
 	}
 }
+
+// 选择排序 时间复杂度
+func SelectSort(list []int){
+	// 元素个数
+	n := len(list)
+	// 循环n-1次
+	for i := 0;i < n-1;i++ {
+		// 最小元素
+		min := i
+		for j := i+1;j < n;j++ {
+			if list[j] < list[min]{
+				min = j
+			}
+		}
+		list[i],list[min] = list[min],list[i]
+	}
+}
