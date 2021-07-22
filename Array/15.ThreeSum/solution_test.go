@@ -6,7 +6,7 @@ import (
 )
 
 func TestThreeSum(t *testing.T) {
-	list := []int{2,-5,6,0,-2,-5,10}
-	result := threeSum(list)
+	list := []int{ -1, 0, 1, 2, -1, -4}
+	result := threeSum2(list)
 	fmt.Println(result)
 }

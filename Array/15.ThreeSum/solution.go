@@ -4,11 +4,13 @@ import (
 	"sort"
 )
 
-// 双指针 + 排序
+// 排序 + 双指针
 func threeSum(nums []int) [][]int {
+	// 对元素进行排序
 	sort.Ints(nums)
+	// 返回结果
 	result := [][]int{}
-
+	// 循环长度-2次，因为最后左右两个指针元素可以不用循环
 	for i := 0;i < len(nums)-2;i++ {
 		n1 :=nums[i]
 		// 如果当前元素已经大于0，直接跳出循环
@@ -23,6 +25,7 @@ func threeSum(nums []int) [][]int {
 		l,r := i+1,len(nums)-1
 		for l < r{
 			n2,n3 := nums[l],nums[r]
+			// 如果三数之和等于0，保存结果并跳过重复元素
 			if n1 + n2 + n3 == 0{
 				result = append(result,[]int{n1,n2,n3})
 				for l < r && nums[l] == n2{
@@ -31,6 +34,7 @@ func threeSum(nums []int) [][]int {
 				for l < r && nums[r] == n3{
 					r--
 				}
+				// 小于0说明元素太小了，左指针向大的元素方向移动
 			}else if n1 + n2 + n3 < 0{
 				l++
 			}else{

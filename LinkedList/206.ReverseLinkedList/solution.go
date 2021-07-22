@@ -34,12 +34,12 @@ func reverseList2(head *ListNode) *ListNode {
 		return head
 	}
 	// 递
-	p := reverseList2(head.Next)
+	newHead := reverseList2(head.Next)
 	// 归 将当前节点的下一个节点指向当前节点
 	head.Next.Next = head
 	// 将当前节点指向空
 	head.Next = nil
-	return p
+	return newHead
 }
 
 // 递归方式2
