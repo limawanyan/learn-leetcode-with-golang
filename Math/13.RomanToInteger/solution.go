@@ -20,11 +20,15 @@ func romanToInt(s string) (res int) {
 	return
 }
 
-// 写法二
+// 写法二 从后往前遍历
 func romanToInt2(s string) (res int) {
+	// 最后一位罗马数对应数值
 	res = romanValues[s[len(s)-1]]
+	// 从后往前遍历
 	for i := len(s)-1;i > 0;i--{
+		// 当前遍历罗马的前一位罗马数对应值
 		perNum := romanValues[s[i-1]]
+		// 如果前一位罗马小于当前罗马数值 -= 否则 +=
 		if perNum < romanValues[s[i]]{
 			res -= perNum
 		}else{
