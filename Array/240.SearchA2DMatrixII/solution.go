@@ -22,10 +22,13 @@ func searchMatrix2(matrix [][]int, target int) bool {
 	row := len(matrix)-1
 	col := len(matrix[0])
 	index := 0
+	// 左下角为起点进行搜索，行列索引越界时结束
 	for row >= 0 && index < col{
+		// 当前元素等于搜索元素返回true
 		if matrix[row][index] == target{
 			return true
 		}
+		// 如果当前元素大于搜索元素，向上移动一行，否则向右移动一列
 		if matrix[row][index] > target {
 			row--
 		}else{
