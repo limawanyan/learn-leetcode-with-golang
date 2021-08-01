@@ -2,7 +2,7 @@ package TraversalMethod
 
 import . "learn-leetcode-with-golang/BinaryTree"
 
-// 后序非递归遍历
+// 后序迭代遍历
 func postorderTraversal(root *TreeNode)	[]int {
 	if root == nil{
 		return nil
