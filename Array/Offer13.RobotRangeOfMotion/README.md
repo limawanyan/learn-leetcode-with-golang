@@ -20,6 +20,7 @@
 链接：https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 # 解题方法
+    这道题跟寻找矩阵中的路径思想一致，利用回溯算法求解。
 ### 深度优先遍历DFS
     时间复杂度O（MN）:最差情况下，机器人遍历矩阵所有单元格
     空间复杂度O（MN）:最差情况下，Set Visited内存储矩阵所有单元格索引
@@ -32,5 +33,6 @@
 
 ### 广度优先遍历BFS
     时间与空间复杂度同DFS
+    详细解参考：https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/solution/mian-shi-ti-13-ji-qi-ren-de-yun-dong-fan-wei-dfs-b/
     
 
