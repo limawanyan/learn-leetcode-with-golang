@@ -75,3 +75,29 @@ func QuickSort2(list []int,begin int,end int)  {
 		QuickSort2(list,loc+1,end)
 	}
 }
+
+func QuickSort3(list []int,begin,end int){
+	if begin < end{
+		loc := partition3(list,begin,end)
+		QuickSort3(list,begin,loc-1)
+		QuickSort3(list,loc+1,end)
+	}
+}
+
+func partition3(list []int,begin,end int) int {
+	left := begin+1
+	right := end
+	for left < right{
+		if list[left] > list[begin]{
+			list[left],list[right] = list[right],list[left]
+			right--
+		}else {
+			left++
+		}
+	}
+	if list[begin] <= list[left]{
+		left--
+	}
+	list[begin],list[left] = list[left],list[begin]
+	return left
+}
