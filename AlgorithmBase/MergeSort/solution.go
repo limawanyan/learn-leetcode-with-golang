@@ -39,3 +39,31 @@ func merge(left, right []int) (result []int) {
 	result = append(result,right[r:]...)
 	return
 }
+
+func merge2(left,right []int) (result []int){
+	l := 0
+	r := 0
+	for l < len(left) && r < len(right) {
+		if left[l] < right[r]{
+			result = append(result,left[l])
+			l++
+		}else {
+			result = append(result,right[r])
+			r++
+		}
+	}
+	result = append(result,left[l:]...)
+	result = append(result,right[r:]...)
+	return result
+}
+
+func mergeSort2(nums []int) []int {
+	if len(nums) <= 1{
+		return nums
+	}
+	mid := len(nums) / 2
+	left := mergeSort2(nums[:mid])
+	right := mergeSort2(nums[mid:])
+	result := merge2(left,right)
+	return result
+}

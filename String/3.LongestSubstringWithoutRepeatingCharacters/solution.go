@@ -40,6 +40,26 @@ func lengthOfLongestSubstring2(s string) int {
 	return result
 }
 
+// 练习3
+func test3(s string) int {
+	// 定义滑动窗口
+	l,r := 0,0
+	// 定义最长子字符串长度
+	result := 0
+	// 遍历字符串
+	for i := range s{
+		index := strings.Index(s[l:i],string(s[i]))
+		if index == -1{
+			r++
+		}else {
+			l += index+1
+			r = i+1
+		}
+		result = max(result,len(s[l:r]))
+	}
+	return result
+}
+
 func max(x,y int) int {
 	if x > y{
 		return x
