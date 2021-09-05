@@ -35,5 +35,20 @@ pos 的值为 -1 或者链表中的一个有效索引
     循环链表，每次循环将节点指针存储到哈希表
     每次循环时判断当前节点是否已经存在。
 
+    时间复杂度：O（n）空间复杂度：O（n）
+
 ### 快慢指针
-    https://leet code-cn.com/problems/linked-list-cycle-ii/solution/linked-list-cycle-ii-kuai-man-zhi-zhen-shuang-zhi-/
+    https://leetcode-cn.com/problems/linked-list-cycle-ii/solution/linked-list-cycle-ii-kuai-man-zhi-zhen-shuang-zhi-/
+
+    假设环外节点个数为a,环内节点个数为b
+    慢指针每次走一步,快指针每次走两步,
+    假设慢指针走过的步数为s,快指针走过的步数为f
+    当两指针相遇时：f = 2s 因为快指针速度是慢指针两倍
+    又可以推导出：f = s + nb 因为快指针进入环以后一直在里面打圈圈,刚好要多走n圈
+    所有可以推导出：s = nb
+    从头节点开始走到入环节点需要走：a + nb,
+    当快慢指针相遇时,慢指针已经走了nb,只需要再走a就可以到达环入口,
+    然后我们让快指针指向头节点走a路程,
+    即两指针会在环入口处相遇。
+    
+    时间复杂度：O（n）空间复杂度：O（1）
