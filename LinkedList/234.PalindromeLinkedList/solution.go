@@ -8,10 +8,12 @@ type ListNode struct {
 // 数组+双指针
 func isPalindrome(head *ListNode) bool {
 	vals := []int{}
+	// 遍历一遍节点值添加到数组
 	for ;head != nil;head  = head.Next{
 		vals = append(vals,head.Val)
 	}
 	n := len(vals)
+	// 双指针从头和尾比较
 	for i,v := range vals[:n/2]{
 		if v != vals[n-1-i]{
 			return false
@@ -55,7 +57,8 @@ func reversList(head *ListNode) *ListNode {
 // 快慢指针找到前半部分链表尾节点
 func endOfFirstHalf(head *ListNode) *ListNode {
 	fast,slow := head,head
-	for fast.Next != nil && fast.Next != nil{
+	// 快指针速度为慢指针两倍，快指针走到尽头，慢指针走一半
+	for fast.Next != nil && fast.Next.Next != nil{
 		fast = fast.Next.Next
 		slow = slow.Next
 	}
@@ -72,7 +75,7 @@ func isPalindrome3(head *ListNode) bool {
 	// 反转后半部分节点
 	secondHalfStart := reversList(firstHalfEnd.Next)
 
-	// 判断是否是回文
+	// 与反转后的后半部分链表比较判断是否是回文
 	p1,p2 := head,secondHalfStart
 	result := true
 	for result && p2 != nil{
