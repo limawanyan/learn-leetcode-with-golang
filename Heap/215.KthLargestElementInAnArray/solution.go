@@ -40,8 +40,6 @@ func partition(nums []int, l, r int) int {
 	k := l + rand.Intn(r-l+1) // 此处为优化，使得时间复杂度期望降为 O(n)，最坏时间复杂度为 O(n^2)
 	nums[k], nums[r] = nums[r], nums[k]
 	i := l - 1
-	// nums[l..i] <= nums[r]
-	// nums[i+1..j-1] > nums[r]
 	for j := l; j < r; j++ {
 		if nums[j] <= nums[r] {
 			i++
@@ -94,4 +92,45 @@ func findKthLargest3(nums []int, k int) int {
 	}
 	fmt.Println(m)
 	return m[0]
+}
+
+
+// 堆排
+var kk int
+func findKthLargest4(nums []int,k int) int {
+	kk = k
+	heapSort(nums)
+	return nums[len(nums)-k]
+}
+
+func heapSort(nums []int)  {
+	end := len(nums)-1
+	for i := end / 2;i >= 0;i--{
+		sink(nums,i,end)
+	}
+	for i:=end;i>=0;i--{
+		nums[i],nums[0]= nums[0],nums[i]
+		if kk == len(nums) - end{
+			return
+		}
+		end--
+		sink(nums,0,end)
+	}
+}
+
+func sink(nums[]int,root,end int)  {
+	for{
+		child := root*2 + 1
+		if child > end{
+			return
+		}
+		if child < end && nums[child] <= nums[child+1]{
+			child++
+		}
+		if nums[root] > nums[child]{
+			return
+		}
+		nums[root],nums[child] = nums[child],nums[root]
+		root = child
+	}
 }

@@ -78,3 +78,53 @@ func reverseKGroup2(head *ListNode, k int) *ListNode {
 	}
 	return pre
 }
+
+//  模拟
+func reverseKGroup3(head *ListNode, k int) *ListNode {
+	// 保存头节点
+	hair := &ListNode{Next: head}
+	// 上一个分组尾节点
+	pre := hair
+
+	for head != nil{
+		// 当前分组尾节点
+		tail := pre
+		// 进行K分组
+		for i := 0;i < k;i++{
+			tail = tail.Next
+			// 如果不足K个元素,直接返回
+			if tail == nil{
+				return hair.Next
+			}
+		}
+		// 保存分组后尾节点的后一个节点
+		nex := tail.Next
+		// 对分组链表进行反转
+		head,tail = myReverse2(head,tail)
+		pre.Next = head
+		tail.Next = nex
+		pre = tail
+		head = nex
+	}
+	return hair.Next
+}
+
+func myReverse2(head, tail *ListNode) (*ListNode,*ListNode) {
+	// 将尾节点下一个节点（下一组的头节点）作为上一个节点
+	prev := tail.Next
+	// 当前节点
+	curr := head
+	// 上一个节点再次等于尾节点结束循环
+	for prev != tail{
+		// 下一个节点
+		next := curr.Next
+		// 当前节点指向上一个节点
+		curr.Next = prev
+		// 当前节点作为上一个节点
+		prev = curr
+		// 下一个节点作为当前节点
+		curr = next
+	}
+	// 尾节点成为反转后组头节点，头节点变为反转后组尾节点
+	return tail,head
+}
