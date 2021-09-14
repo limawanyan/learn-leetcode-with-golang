@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"math/rand"
 	"sort"
+	"time"
 )
 
 // 解法一 排序，排序的方法反而速度是最快的
@@ -133,4 +134,39 @@ func sink(nums[]int,root,end int)  {
 		nums[root],nums[child] = nums[child],nums[root]
 		root = child
 	}
+}
+
+
+// 快排 时间复杂度 O（n） 空间复杂度 O（logn）
+func findKthLargest5(nums []int,k int) int {
+	// 设置一个随机种子，使得每次随机值不一样
+	rand.Seed(time.Now().UnixNano())
+	return quickSort(nums,0,len(nums)-1,len(nums)-k)
+}
+
+func quickSort(nums []int,left,right,index int) int {
+	p := partition2(nums,left,right)
+	// 当前快排分割索引为K位置元素
+	if p == index{
+		return nums[p]
+	}else if p < index{
+		return quickSort(nums,p+1,right,index)
+	}
+	return quickSort(nums,left,p-1,index)
+}
+
+func partition2(nums []int, left, right int) int {
+	// 随机一个排序范围内索引作为快排的轴元素
+	p := rand.Int() % (right-left+1) + left
+	// 将随机轴元素放置到排序列表最后一个元素
+	nums[right],nums[p] = nums[p],nums[right]
+	i := left
+	for j := left;j < right;j++{
+		if nums[j] <= nums[right]{
+			nums[i],nums[j] = nums[j],nums[i]
+			i++
+		}
+	}
+	nums[i],nums[right] = nums[right],nums[i]
+	return i
 }
