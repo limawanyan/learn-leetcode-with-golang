@@ -6,5 +6,6 @@ import (
 )
 
 func TestSubsets(t *testing.T) {
+	//fmt.Println(subsets([]int{1,2,3}))
 	fmt.Println(subsets([]int{1,2,3}))
 }
