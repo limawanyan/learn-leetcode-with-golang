@@ -63,4 +63,24 @@ func maxSubArray3(nums []int) int {
 	return result
 }
 
-
+// 返回子序列
+func maxSubArray4(nums []int) ([]int,int) {
+	if len(nums) == 1 {
+		return nums,0
+	}
+	res := math.MinInt32
+	count := 0
+	left,right := 0,0
+	for i:=0;i < len(nums);i++{
+		count += nums[i]
+		if count > res {
+			res = count
+			right = i
+		}
+		if count < 0 {
+			count = 0
+			left = i+1
+		}
+	}
+	return nums[left:right+1],res
+}
