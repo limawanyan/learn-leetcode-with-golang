@@ -41,6 +41,9 @@
 11. TheKthLargestNode
 12. TraversalMethod
 
+## DictionaryTree
+1. PrefixAndSuffixSearch
+
 ## Heap
 1. MergeKSortedLists
 2. KthLargestElementInAnArray
