@@ -8,11 +8,11 @@ import (
 func TestSolution1(t *testing.T) {
 	words := []string{"apple"}
 	obj := Constructor1(words)
-	fmt.Println(obj.F1("a", "e"))
+	fmt.Println(obj.F1("a", "le"))
 }
 
 func TestSolution2(t *testing.T) {
 	words := []string{"apple"}
 	obj := Constructor2(words)
-	fmt.Println(obj.F2("a", "e"))
+	fmt.Println(obj.F2("a", "le"))
 }

@@ -27,15 +27,15 @@ func (wf WordFilter1) F1(pref string, suff string) int {
 //==========================前缀树=============================
 
 // TreeNode 树节点
-type TreeNode struct {
+type TrieNode struct {
 	data     []int
-	children []*TreeNode
+	children []*TrieNode
 }
 
 // WordFilter2 单词过滤器
 type WordFilter2 struct {
-	prefix *TreeNode
-	suffix *TreeNode
+	prefix *TrieNode
+	suffix *TrieNode
 }
 
 func Constructor2(words []string) WordFilter2 {
@@ -46,16 +46,16 @@ func Constructor2(words []string) WordFilter2 {
 }
 
 // NewNode 实例化新节点
-func NewNode() *TreeNode {
-	return &TreeNode{
+func NewNode() *TrieNode {
+	return &TrieNode{
 		data:     []int{},
-		children: make([]*TreeNode, 26),
+		children: make([]*TrieNode, 26),
 	}
 }
 
 // 构造字典树
 // isPref 是否前缀
-func build(words []string, isPref bool) *TreeNode {
+func build(words []string, isPref bool) *TrieNode {
 	// 根节点
 	root := NewNode()
 	// 循环所有单词
@@ -93,7 +93,7 @@ func build(words []string, isPref bool) *TreeNode {
 }
 
 // query 查询
-func query(root *TreeNode, s string, isPref bool) []int {
+func query(root *TrieNode, s string, isPref bool) []int {
 	p := root
 	// 是否前缀
 	if isPref {
