@@ -1,8 +1,8 @@
 package reverse_linked_list
 
 type ListNode struct {
-	Val int
-    Next *ListNode
+	Val  int
+	Next *ListNode
 }
 
 // 迭代方式 时间复杂度为O(n) n为链表长度 空间复杂度为 O(1)
@@ -30,7 +30,7 @@ func reverseList(head *ListNode) *ListNode {
 // 递归方式 时间复杂度 O(n) 空间复杂度 O(n)
 func reverseList2(head *ListNode) *ListNode {
 	// 终止条件，当前节点为空或指向到最后一个节点
-	if head == nil || head.Next == nil{
+	if head == nil || head.Next == nil {
 		return head
 	}
 	// 递
@@ -44,18 +44,18 @@ func reverseList2(head *ListNode) *ListNode {
 
 // 递归方式2
 func reverseList3(head *ListNode) *ListNode {
-	return reverse(nil,head)
+	return reverse(nil, head)
 }
 
 // 递归传递上一个节点和当前节点
-func reverse(prev *ListNode,curr *ListNode) *ListNode{
+func reverse(prev *ListNode, curr *ListNode) *ListNode {
 	// 如果当前节点为空终止递归
-	if curr == nil{
+	if curr == nil {
 		return prev
 	}
 	// 保存下一个节点
 	next := curr.Next
 	// 将当前节点指向上一个节点
 	curr.Next = prev
-	return reverse(curr,next)
+	return reverse(curr, next)
 }
